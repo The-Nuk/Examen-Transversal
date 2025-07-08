@@ -32,6 +32,7 @@ public class Usuario {
     private String nombre;
 
     @NotBlank(message = "El apellido no puede estar vacío")
+    @Schema(description = "Apellido del usuario", example = "Pérez")
     private String apellido;
 
     @NotBlank(message = "El email no puede estar vacío")
