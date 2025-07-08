@@ -40,4 +40,9 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
+    public Usuario guardarUsuario(Usuario usuario) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'guardarUsuario'");
+    }
+
 }
