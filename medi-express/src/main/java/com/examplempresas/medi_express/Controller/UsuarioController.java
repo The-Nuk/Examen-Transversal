@@ -106,4 +106,32 @@ public class UsuarioController {
         usuarioService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
+
+    // PUT /API/USUARIOS/{id}/productos
+    // Asignar productos a un usuario
+    @PutMapping("/{id}/productos")
+    @Operation(summary = "Asignar productos a un usuario", description = "Asigna una lista de IDs de productos a un usuario.")
+    @ApiResponse(responseCode = "200", description = "Productos asignados correctamente")
+    @ApiResponse(responseCode = "404", description = "Usuario no encontrado")
+    public ResponseEntity<Usuario> asignarProductos(
+        @Parameter(description = "ID del usuario") @PathVariable Long id,
+        @RequestBody List<Long> productosIds) {
+        Optional<Usuario> usuarioOpt = usuarioService.asignarProductos(id, productosIds);
+        return usuarioOpt.map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    // GET /API/USUARIOS/{id}/productos
+    // Obtener los IDs de productos de un usuario
+    @GetMapping("/{id}/productos")
+    @Operation(summary = "Obtener productos de un usuario", description = "Devuelve la lista de IDs de productos asociados a un usuario.")
+    @ApiResponse(responseCode = "200", description = "Lista de productos obtenida correctamente")
+    @ApiResponse(responseCode = "404", description = "Usuario no encontrado")
+    public ResponseEntity<List<Long>> getProductosIdsDeUsuario(
+        @Parameter(description = "ID del usuario") @PathVariable Long id) {
+        Optional<Usuario> usuarioOpt = usuarioService.findById(id);
+        return usuarioOpt.map(usuario -> ResponseEntity.ok(usuario.getProductosIds()))
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
 }
+
