@@ -74,7 +74,7 @@ public class UsuarioControllerTest {
                 .andExpect(status().isNotFound());
     }
 
-    @Test 
+    @Test
     public void testDeleteUsuario() throws Exception {
         doNothing().when(usuarioService).deleteById(1L);
 
