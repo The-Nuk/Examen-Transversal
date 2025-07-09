@@ -1,6 +1,7 @@
 package com.examplempresas.medi_express.Model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -48,5 +49,11 @@ public class Usuario {
     @NotBlank(message = "El rol no puede estar vacío")
     @Schema(description = "Rol del usuario", example = "ADMIN")
     private String rol;
+
+    @ElementCollection
+    @Schema(description = "Lista de IDs de productos asociados al usuario", example = "[1, 2, 3]")
+    private java.util.List<Long> productosIds;
+
+
 
 }
