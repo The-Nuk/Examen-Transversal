@@ -1,0 +1,11 @@
+com\examplempresas\producto_service\Service\EstanteriaService.class
+com\examplempresas\producto_service\Model\Estanteria.class
+com\examplempresas\producto_service\Model\Producto$ProductoBuilder.class
+com\examplempresas\producto_service\Controller\ProductoController.class
+com\examplempresas\producto_service\Controller\EstanteriaController.class
+com\examplempresas\producto_service\Repository\ProductoRepository.class
+com\examplempresas\producto_service\Model\Producto.class
+com\examplempresas\producto_service\ProductosApplication.class
+com\examplempresas\producto_service\Repository\EstanteriaRepository.class
+com\examplempresas\producto_service\Service\ProductoService.class
+com\examplempresas\producto_service\Model\Estanteria$EstanteriaBuilder.class
